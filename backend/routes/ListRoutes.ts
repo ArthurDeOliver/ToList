@@ -37,4 +37,14 @@ ListRouter.patch("/:listId/:taskId", async (req: Request, res: Response) => {
   }
 });
 
+ListRouter.get("/", async (req: Request, res: Response) => {
+  try {
+    await ListController.getAllLists(req, res);
+    res.status(200).json({ message: "Lists retrieved successfully" });
+  } catch (error) {
+    console.error("Error in ListRouter GET /:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 export default ListRouter;
