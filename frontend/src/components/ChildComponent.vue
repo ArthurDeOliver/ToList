@@ -12,7 +12,10 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const notifyParent = () => {
-      emit("call", "Oi Pai! O botão foi clicado.");
+      emit("call", {
+        mensage: "Mensagem do componente filho",
+        text: props.text,
+      });
     };
     return {
       notifyParent,

@@ -1,32 +1,29 @@
 <template>
   <div>
-    <FatherComponent></FatherComponent>
+    <ifElseComponent />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import FatherComponent from "./components/FatherComponent.vue";
+import ifElseComponent from "./components/ifElseComponent.vue";
+import VmodelComponent from "./components/Vmodel.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    FatherComponent,
+    VmodelComponent,
+    ifElseComponent,
   },
 });
 </script>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 </style>

@@ -3,6 +3,7 @@
     <ul>
       <li v-for="product in isProductInStock" :key="product.id">
         {{ product.name }}
+        {{ product.inStock }}
       </li>
     </ul>
     <button @click="ChangeProductInStock">Alterar o primeiro produto</button>
@@ -24,8 +25,8 @@ export default defineComponent({
     });
 
     const isProductInStock = computed(() => {
-      const productsInStockFiltered = products.items.filter(
-        (products) => products.inStock
+      const productsInStockFiltered = products.items.filter((products) =>
+        products.inStock ? "Em estoque" : "Fora de estoque"
       );
       return productsInStockFiltered;
     });
@@ -44,16 +45,23 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 ul {
   list-style-type: none;
   padding: 0;
 }
 li {
   padding: 8px;
-  background-color: #2c2c2c;
+  background-color: #e0e0e0;
   margin-bottom: 4px;
   border-radius: 4px;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 button {
   padding: 10px 20px;

@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>Father Component</h1>
-    <ChildComponent @call="handleNotification" />
+    <ChildComponent
+      @call="handleNotification"
+      text="texto passado pelo props"
+    />
   </div>
 </template>
 <script lang="ts">
@@ -14,8 +17,11 @@ export default defineComponent({
     ChildComponent,
   },
   setup() {
-    function handleNotification(message: string) {
-      console.log("Mensagem recebida do filho:", message);
+    function handleNotification(mensagemFilho: {
+      mensage: string;
+      text: string;
+    }) {
+      console.log("Mensagem recebida do filho:", mensagemFilho.mensage);
     }
     const fatherText = "Texto do componente pai";
     return {
@@ -25,7 +31,16 @@ export default defineComponent({
   },
 });
 </script>
-<style>
+<style scoped>
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 20%;
+  align-items: center;
+  /* background-color: red; */
+  padding: 10px;
+}
 h1 {
   color: #42b883;
   font-size: 24px;
