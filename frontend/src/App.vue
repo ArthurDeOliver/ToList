@@ -1,28 +1,20 @@
+<template>
+  <div>
+    <FatherComponent></FatherComponent>
+  </div>
+</template>
+
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import FatherComponent from "./components/FatherComponent.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    HelloWorld,
+    FatherComponent,
   },
-})
+});
 </script>
-
-<template>
-  <div>
-    <div>
-      <a href="https://vite.dev" target="_blank">
-        <img src="/vite.svg" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://vuejs.org/" target="_blank">
-        <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-      </a>
-    </div>
-    <HelloWorld msg="Arthur" />
-  </div>
-</template>
 
 <style scoped>
 .logo {
